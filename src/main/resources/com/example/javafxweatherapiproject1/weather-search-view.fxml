@@ -1,14 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.javafxweatherapiproject1.Controllers.WeatherSearchViewController"
-            prefHeight="400.0" prefWidth="600.0">
 
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javafxweatherapiproject1.Controllers.WeatherSearchViewController">
+   <children>
+      <Label layoutX="210.0" layoutY="66.0" text="Search Current Weather">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <HBox layoutX="238.0" layoutY="180.0" spacing="20.0">
+         <children>
+            <Label text="City Name">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="cityNameSearchTextField" />
+            <Button mnemonicParsing="false" onAction="#getSearchResults" text="Search" />
+         </children>
+      </HBox>
+      <VBox layoutX="110.0" layoutY="300.0">
+         <children>
+            <Label fx:id="weatherLabel" text="Weather" />
+            <ImageView fx:id="weatherImageView" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+            <Button mnemonicParsing="false" onAction="#checkDetailsButton" text="Check More Details" />
+         </children>
+      </VBox>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="490.0" layoutY="318.0" pickOnBounds="true" preserveRatio="true" />
+   </children>
 </AnchorPane>
