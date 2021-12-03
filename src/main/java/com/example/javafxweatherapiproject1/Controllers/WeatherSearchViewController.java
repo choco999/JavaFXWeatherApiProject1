@@ -22,6 +22,9 @@ public class WeatherSearchViewController implements Initializable {
     private TextField cityNameSearchTextField;
 
     @FXML
+    private Label cityLabel;
+
+    @FXML
     private Label weatherLabel;
 
     @FXML
@@ -37,18 +40,24 @@ public class WeatherSearchViewController implements Initializable {
         // get the city name user typed
         ApiResponse apiResponse = APIUtility.getWeatherFromOpenWeatherAPI(cityNameSearchTextField.getText());
 
-
-        if(apiResponse != null)
+        if(apiResponse.getWeather() != null)
         {
             String cityName = apiResponse.getName();
             ArrayList<Weather> weather = apiResponse.getWeather();
 
-            weatherLabel.setText(cityName + "'s Current Weather: ");
+            setVisibleBySearchResult(true, true);
 
+            cityLabel.setText(cityName + "'s Current Weather");
+
+            weatherLabel.setText(weather.get(0).getMain());
 
             String icon = weather.get(0).getIcon();
-
             weatherImageView.setImage(new Image("http://openweathermap.org/img/wn/" + icon + "@2x.png"));
+        }
+        else
+        {
+            setVisibleBySearchResult(true, false);
+            cityLabel.setText("Invalid City Name");
         }
     }
 
@@ -60,6 +69,19 @@ public class WeatherSearchViewController implements Initializable {
 //        } catch (FileNotFoundException e) {
 //            e.printStackTrace();
 //        }
+
+        setVisibleBySearchResult(false, false);
+    }
+
+    /**
+     * This method will turn cityLabel, weatherLabel, and weatherImageView
+     * to be visible or non-visible depending on the state of searching
+     */
+    private void setVisibleBySearchResult(boolean cityFound, boolean weatherDisplayed)
+    {
+        cityLabel.setVisible(cityFound);
+        weatherLabel.setVisible(weatherDisplayed);
+        weatherImageView.setVisible(weatherDisplayed);
     }
 }
 
