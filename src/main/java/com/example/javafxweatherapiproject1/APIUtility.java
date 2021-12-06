@@ -1,5 +1,6 @@
 package com.example.javafxweatherapiproject1;
 
+import com.example.javafxweatherapiproject1.Models.WeatherDetails;
 import com.google.gson.Gson;
 import com.google.gson.stream.JsonReader;
 
@@ -53,5 +54,21 @@ public class APIUtility {
                 .ofFile(Paths.get("jsonData1")));
 
         return getWeatherJsonFile();
+    }
+
+    /**
+     *
+     */
+    public static WeatherDetails getWeatherDetails(String cityName) throws IOException, InterruptedException {
+
+        String uri = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=6018d9fad9dc01a56c0b6fb4386c2073";
+
+        HttpClient client = HttpClient.newHttpClient();
+        HttpRequest httpRequest = HttpRequest.newBuilder().uri(URI.create(uri)).build();
+
+        HttpResponse<String> response = client.send(httpRequest, HttpResponse.BodyHandlers.ofString());
+
+        Gson gson = new Gson();
+        return gson.fromJson(response.body(), WeatherDetails.class);
     }
 }
