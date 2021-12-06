@@ -3,9 +3,11 @@ package com.example.javafxweatherapiproject1.Controllers;
 import com.example.javafxweatherapiproject1.APIUtility;
 import com.example.javafxweatherapiproject1.ApiResponse;
 import com.example.javafxweatherapiproject1.Models.Weather;
+import com.example.javafxweatherapiproject1.SceneChanger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -31,9 +33,7 @@ public class WeatherSearchViewController implements Initializable {
     private ImageView weatherImageView;
 
     @FXML
-    void checkDetailsButton(ActionEvent event) {
-
-    }
+    private Button checkDetailsButton;
 
     @FXML
     void getSearchResults(ActionEvent event) throws IOException, InterruptedException {
@@ -63,13 +63,6 @@ public class WeatherSearchViewController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-//        try {
-//            Image img = new Image(new FileInputStream("C:\\Users\\chisa\\Downloads\\female_avatar.png"));
-//            weatherImageView.setImage(img);
-//        } catch (FileNotFoundException e) {
-//            e.printStackTrace();
-//        }
-
         setVisibleBySearchResult(false, false);
     }
 
@@ -82,6 +75,13 @@ public class WeatherSearchViewController implements Initializable {
         cityLabel.setVisible(cityFound);
         weatherLabel.setVisible(weatherDisplayed);
         weatherImageView.setVisible(weatherDisplayed);
+        checkDetailsButton.setVisible(weatherDisplayed);
+    }
+
+    @FXML
+    void checkWeatherDetails(ActionEvent event) throws IOException, InterruptedException {
+        String cityName = cityLabel.getText();
+        SceneChanger.changeScenes(event, "weather-details-view.fxml", cityName);
     }
 }
 

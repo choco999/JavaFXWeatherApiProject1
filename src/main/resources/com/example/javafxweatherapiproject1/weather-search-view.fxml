@@ -9,7 +9,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javafxweatherapiproject1.Controllers.WeatherSearchViewController">
    <children>
       <Label layoutX="210.0" layoutY="66.0" text="Search Current Weather">
@@ -33,7 +32,7 @@
             <Label fx:id="cityLabel" text="Invalid City Name" />
             <Label fx:id="weatherLabel" />
             <ImageView fx:id="weatherImageView" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
-            <Button mnemonicParsing="false" onAction="#checkDetailsButton" text="Check More Details" />
+            <Button fx:id="checkDetailsButton" mnemonicParsing="false" onAction="#checkWeatherDetails" text="Check More Details" />
          </children>
       </VBox>
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="490.0" layoutY="318.0" pickOnBounds="true" preserveRatio="true" />
