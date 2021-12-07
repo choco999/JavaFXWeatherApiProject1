@@ -73,4 +73,9 @@ public class Main {
     public void setHumidity(int humidity) {
         this.humidity = humidity;
     }
+
+//    public String toString()
+//    {
+//        return String.format("%d", temp);
+//    }
 }

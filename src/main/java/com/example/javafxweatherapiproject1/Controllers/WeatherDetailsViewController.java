@@ -38,37 +38,59 @@ public class WeatherDetailsViewController implements Initializable {
     @FXML
     private Label cloudinessLabel;
 
-    @FXML
-    void backToSearch(ActionEvent event) {
-
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+//        try {
+//            loadWeatherDetails("1850144");
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
     }
 
     public void loadWeatherDetails(String cityName) throws IOException, InterruptedException {
 
-        WeatherDetails weatherDetail = APIUtility.getWeatherDetails(cityName);
+        WeatherDetails weatherDetail = null;
 
-        cityNameLabel.setText(cityName + "'s Weather Details");
+        weatherDetail = APIUtility.getWeatherDetails(cityName);
 
+        //cityNameLabel.setText(cityName + "'s Weather Details");
+        cityNameLabel.setText(weatherDetail.getName() + "'s Weather Details");
+
+        // create weather
         ArrayList<Weather> weather = weatherDetail.getWeather();
-        descriptionLabel.setText(weather.get(0).getDescription());
 
-        tempLabel.setText((weatherDetail.getMain().getTemp() - 273.15)+ "°");
-        feelsLikeLabel.setText((weatherDetail.getMain().getFeelsLike() - 273.15)+ "°");
-        humidityLabel.setText(weatherDetail.getMain().getHumidity() + "%");
-        cloudinessLabel.setText(weatherDetail.getClouds().getAll() + "%");
+        // description
+        String description = weather.get(0).getDescription();
+        //System.out.println(description);
+        descriptionLabel.setText(description);
 
+        // temp
+        float temp = weatherDetail.getMain().getTemp();
+        //System.out.println(temp);
+        tempLabel.setText((temp - 273.15)+ "°");
+
+        // feels like
+        float feelsLike = weatherDetail.getMain().getFeelsLike();
+        //System.out.println(feelsLike);
+        feelsLikeLabel.setText((feelsLike - 273.15)+ "°");
+
+        // humidity
+        int humidity = weatherDetail.getMain().getHumidity();
+        humidityLabel.setText(humidity + "%");
+
+        // cloudiness
+        int cloudiness = weatherDetail.getClouds().getAll();
+        cloudinessLabel.setText(cloudiness + "%");
+
+        // icon
         String icon = weather.get(0).getIcon();
         weatherImageView.setImage(new Image("http://openweathermap.org/img/wn/" + icon + "@2x.png"));
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        try {
-            loadWeatherDetails("Tokyo");
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+    @FXML
+    void backToSearch(ActionEvent event) {
+
     }
 }

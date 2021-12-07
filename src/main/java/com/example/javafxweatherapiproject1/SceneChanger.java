@@ -1,5 +1,6 @@
 package com.example.javafxweatherapiproject1;
 
+import com.example.javafxweatherapiproject1.Controllers.WeatherDetailsViewController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -13,7 +14,8 @@ public class SceneChanger {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource(fxmlFile));
         Scene scene = new Scene(fxmlLoader.load());
 
-        
+        WeatherDetailsViewController controller = fxmlLoader.getController();
+        controller.loadWeatherDetails(cityName);
 
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setScene(scene);

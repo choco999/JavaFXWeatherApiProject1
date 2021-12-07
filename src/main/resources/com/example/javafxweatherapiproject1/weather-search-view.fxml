@@ -29,7 +29,12 @@
       </HBox>
       <VBox layoutX="110.0" layoutY="300.0">
          <children>
-            <Label fx:id="cityLabel" text="Invalid City Name" />
+            <HBox>
+               <children>
+                  <Label fx:id="cityLabel" text="Invalid City Name" />
+                  <Label fx:id="currentWeatherLabel" text="'s Current Weather" />
+               </children>
+            </HBox>
             <Label fx:id="weatherLabel" />
             <ImageView fx:id="weatherImageView" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
             <Button fx:id="checkDetailsButton" mnemonicParsing="false" onAction="#checkWeatherDetails" text="Check More Details" />

@@ -6,11 +6,13 @@ public class WeatherDetails {
     private ArrayList<Weather> weather;
     private Main main;
     private Clouds clouds;
+    private String name;
 
-    public WeatherDetails(ArrayList<Weather> weather, Main main, Clouds clouds) {
+    public WeatherDetails(ArrayList<Weather> weather, Main main, Clouds clouds, String name) {
         this.weather = weather;
         this.main = main;
         this.clouds = clouds;
+        this.name = name;
     }
 
     public ArrayList<Weather> getWeather() {
@@ -36,4 +38,17 @@ public class WeatherDetails {
     public void setClouds(Clouds clouds) {
         this.clouds = clouds;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+//    public String toString()
+//    {
+//        return String.format();
+//    }
 }
