@@ -4,6 +4,7 @@ import com.example.javafxweatherapiproject1.APIUtility;
 import com.example.javafxweatherapiproject1.InitializeWeather;
 import com.example.javafxweatherapiproject1.Models.Weather;
 import com.example.javafxweatherapiproject1.Models.WeatherDetails;
+import com.example.javafxweatherapiproject1.SceneChanger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -97,7 +98,7 @@ public class WeatherDetailsViewController implements Initializable, InitializeWe
     }
 
     @FXML
-    void backToSearch(ActionEvent event) {
-
+    void backToSearch(ActionEvent event) throws IOException, InterruptedException {
+        SceneChanger.changeScenes(event, "weather-search-view.fxml");
     }
 }
