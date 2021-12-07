@@ -76,6 +76,7 @@ public class WeatherSearchViewController implements Initializable {
     private void setVisibleBySearchResult(boolean cityFound, boolean weatherDisplayed)
     {
         cityLabel.setVisible(cityFound);
+        currentWeatherLabel.setVisible(weatherDisplayed);
         weatherLabel.setVisible(weatherDisplayed);
         weatherImageView.setVisible(weatherDisplayed);
         checkDetailsButton.setVisible(weatherDisplayed);
@@ -83,7 +84,6 @@ public class WeatherSearchViewController implements Initializable {
 
     @FXML
     void checkWeatherDetails(ActionEvent event) throws IOException, InterruptedException {
-        //String cityName = cityLabel.getText();
         String cityName = cityLabel.getText();
         System.out.println(cityName);
         SceneChanger.changeScenes(event, "weather-details-view.fxml", cityName);
