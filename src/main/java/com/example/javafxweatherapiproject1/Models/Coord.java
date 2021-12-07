@@ -5,8 +5,8 @@ public class Coord {
     private float lat;
 
     public Coord(float lon, float lat) {
-        this.lon = lon;
-        this.lat = lat;
+        setLon(lon);
+        setLat(lat);
     }
 
     public float getLon() {

@@ -18,12 +18,12 @@ public class Main {
     private int humidity;
 
     public Main(float temp, float feelsLike, float tempMin, float tempMax, int pressure, int humidity) {
-        this.temp = temp;
-        this.feelsLike = feelsLike;
-        this.tempMin = tempMin;
-        this.tempMax = tempMax;
-        this.pressure = pressure;
-        this.humidity = humidity;
+        setTemp(temp);
+        setFeelsLike(feelsLike);
+        setTempMin(tempMin);
+        setTempMax(tempMax);
+        setPressure(pressure);
+        setHumidity(humidity);
     }
 
     public float getTemp() {

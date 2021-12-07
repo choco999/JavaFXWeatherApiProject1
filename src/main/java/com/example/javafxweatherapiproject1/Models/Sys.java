@@ -8,11 +8,11 @@ public class Sys {
     private int sunset;
 
     public Sys(int type, int id, String country, int sunrise, int sunset) {
-        this.type = type;
-        this.id = id;
-        this.country = country;
-        this.sunrise = sunrise;
-        this.sunset = sunset;
+        setType(type);
+        setId(id);
+        setCountry(country);
+        setSunrise(sunrise);
+        setSunset(sunset);
     }
 
     public int getType() {

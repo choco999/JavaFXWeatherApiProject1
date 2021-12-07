@@ -9,10 +9,10 @@ public class WeatherDetails {
     private String name;
 
     public WeatherDetails(ArrayList<Weather> weather, Main main, Clouds clouds, String name) {
-        this.weather = weather;
-        this.main = main;
-        this.clouds = clouds;
-        this.name = name;
+        setWeather(weather);
+        setMain(main);
+        setClouds(clouds);
+        setName(name);
     }
 
     public ArrayList<Weather> getWeather() {

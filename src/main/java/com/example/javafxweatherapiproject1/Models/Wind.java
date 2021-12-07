@@ -6,9 +6,9 @@ public class Wind {
     private float gust;
 
     public Wind(float speed, int deg, float gust) {
-        this.speed = speed;
-        this.deg = deg;
-        this.gust = gust;
+        setSpeed(speed);
+        setDeg(deg);
+        setGust(gust);
     }
 
     public float getSpeed() {

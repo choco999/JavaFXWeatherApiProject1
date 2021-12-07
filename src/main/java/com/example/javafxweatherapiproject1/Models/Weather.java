@@ -1,11 +1,6 @@
 package com.example.javafxweatherapiproject1.Models;
 
 public class Weather {
-//    id	804
-//    main	"Clouds"
-//    description	"overcast clouds"
-//    icon	"04n"
-
     private int id;
 
     private String main;

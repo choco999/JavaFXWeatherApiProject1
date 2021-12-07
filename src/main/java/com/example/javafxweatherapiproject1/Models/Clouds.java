@@ -4,7 +4,7 @@ public class Clouds {
     private int all;
 
     public Clouds(int all) {
-        this.all = all;
+        setAll(all);
     }
 
     public int getAll() {
