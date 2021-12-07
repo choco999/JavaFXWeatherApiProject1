@@ -1,6 +1,7 @@
 package com.example.javafxweatherapiproject1.Controllers;
 
 import com.example.javafxweatherapiproject1.APIUtility;
+import com.example.javafxweatherapiproject1.InitializeWeather;
 import com.example.javafxweatherapiproject1.Models.Weather;
 import com.example.javafxweatherapiproject1.Models.WeatherDetails;
 import javafx.event.ActionEvent;
@@ -15,7 +16,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class WeatherDetailsViewController implements Initializable {
+public class WeatherDetailsViewController implements Initializable, InitializeWeather {
 
     @FXML
     private Label cityNameLabel;
@@ -49,13 +50,19 @@ public class WeatherDetailsViewController implements Initializable {
 //        }
     }
 
-    public void loadWeatherDetails(String cityName) throws IOException, InterruptedException {
+    public void loadWeatherDetails(String cityName) {
 
         WeatherDetails weatherDetail = null;
 
-        weatherDetail = APIUtility.getWeatherDetails(cityName);
+        try {
+            weatherDetail = APIUtility.getWeatherDetails(cityName);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
-        //cityNameLabel.setText(cityName + "'s Weather Details");
+        // city name
         cityNameLabel.setText(weatherDetail.getName() + "'s Weather Details");
 
         // create weather
