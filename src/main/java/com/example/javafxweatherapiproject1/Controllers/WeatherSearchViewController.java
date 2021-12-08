@@ -85,7 +85,7 @@ public class WeatherSearchViewController implements Initializable {
     @FXML
     void checkWeatherDetails(ActionEvent event) throws IOException, InterruptedException {
         String cityName = cityLabel.getText();
-        System.out.println(cityName);
+        //System.out.println(cityName);
         SceneChanger.changeScenes(event, "weather-details-view.fxml", cityName);
     }
 }
