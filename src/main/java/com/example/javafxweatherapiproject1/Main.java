@@ -3,9 +3,11 @@ package com.example.javafxweatherapiproject1;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class Main extends Application {
     @Override
@@ -14,6 +16,8 @@ public class Main extends Application {
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Search Current Weather");
         stage.setScene(scene);
+        //stage.getIcons().add(new Image("https://pics.freeicons.io/uploads/icons/png/9607814611548329941-512.png"));
+        stage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("Images/weather_icon.png"))));
         stage.show();
     }
 
