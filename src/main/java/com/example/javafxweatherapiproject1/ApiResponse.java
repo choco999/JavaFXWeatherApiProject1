@@ -6,28 +6,22 @@ import com.example.javafxweatherapiproject1.Models.Main;
 import java.util.ArrayList;
 
 public class ApiResponse {
-    // coord
     private Coord coord;
 
-    //weather
     private ArrayList<Weather> weather;
 
     private String base;
 
-    //main
     private Main main;
 
     private int visibility;
 
-    //wind
     private Wind wind;
 
-    //clouds
     private Clouds clouds;
 
-    private int dt; // long?
+    private int dt;
 
-    //sys
     private Sys sys;
 
     private int timezone;
