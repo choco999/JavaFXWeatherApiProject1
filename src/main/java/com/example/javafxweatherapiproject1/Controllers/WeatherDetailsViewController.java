@@ -77,12 +77,12 @@ public class WeatherDetailsViewController implements Initializable, InitializeWe
         // temp
         float temp = weatherDetail.getMain().getTemp();
         //System.out.println(temp);
-        tempLabel.setText((temp - 273.15)+ "°");
+        tempLabel.setText(String.format("%.1f", temp - 273.15) + "C°");
 
         // feels like
         float feelsLike = weatherDetail.getMain().getFeelsLike();
         //System.out.println(feelsLike);
-        feelsLikeLabel.setText((feelsLike - 273.15)+ "°");
+        feelsLikeLabel.setText(String.format("%.1f", feelsLike - 273.15) + "C°");
 
         // humidity
         int humidity = weatherDetail.getMain().getHumidity();
